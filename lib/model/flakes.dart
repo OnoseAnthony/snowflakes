@@ -27,10 +27,10 @@ class SnowFlakes {
     final duration = Duration(seconds: 5, milliseconds: random!.nextInt(10000));
 
     tween = MultiTrackTween([
-      Track("x").add(
+      Track("horizontalOffset").add(
           duration, Tween(begin: startPosition.dx, end: endPosition.dx),
           curve: Curves.easeInOutSine),
-      Track("y").add(
+      Track("verticalOffset").add(
           duration, Tween(begin: startPosition.dy, end: endPosition.dy),
           curve: Curves.easeIn),
     ]);
