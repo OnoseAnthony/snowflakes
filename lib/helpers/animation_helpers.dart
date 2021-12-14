@@ -36,7 +36,7 @@ class _TrackItem<T> {
 
   _TrackItem(this.duration, Animatable<T>? _tween, {Curve? curve})
       : assert(duration != null, "Please set a duration."),
-        assert(_tween == null, "Please set a tween.") {
+        assert(_tween != null, "Please set a tween.") {
     if (curve != null) {
       tween = _tween!.chain(CurveTween(curve: curve));
     } else {
