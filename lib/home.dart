@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
+import 'package:snowflakes/helpers/animation_helpers/flake_painter.dart';
+import 'package:snowflakes/helpers/animation_helpers/flakes_renderer.dart';
 import 'package:snowflakes/helpers/animation_helpers/tween.dart';
+import 'package:snowflakes/model/flakes.dart';
 
 
 
@@ -12,6 +15,14 @@ class SnowStorm extends StatefulWidget {
 }
 
 class _SnowStormState extends State<SnowStorm> {
+  final List<SnowFlakes> flakes = [];
+
+  @override
+  void initState() {
+    flakes.addAll(SnowFlakes.getFlakesToDisplay(flakesAmount: 10));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,11 +54,25 @@ class _SnowStormState extends State<SnowStorm> {
           ),
 
           Positioned.fill(
-              child: Container()
+              child: SnowFlakeRenderer(
+                startTime: const Duration(seconds: 30),
+                builder: (context, time) {
+                  render(time);
+                  return CustomPaint(
+                    painter: SnowFlakePainter(flakes, time),
+                  );
+                },
+              )
           ),
         ],
       ),
     );
+  }
+
+  render(Duration duration){
+    for (var flake in flakes) {
+      flake.maintainRestart(duration);
+    }
   }
 }
 

@@ -108,6 +108,7 @@ class SnowFlakes {
     List<double> list = m.storage.toList();
     _path = _path!.transform(Float64List.fromList(list));
   }
+
   Path get path {
     if(_path != null) {
       return _path!;
@@ -121,4 +122,17 @@ class SnowFlakes {
       loop(time: time);
     }
   }
+
+  static List<SnowFlakes> getFlakesToDisplay({int flakesAmount = 20}) {
+    final math.Random random = math.Random();
+    List<SnowFlakes> snowFlakesList = [];
+    List.generate(flakesAmount, (index) {
+      snowFlakesList.add(SnowFlakes(random));
+    });
+    return snowFlakesList;
+  }
+
+
 }
+
+
