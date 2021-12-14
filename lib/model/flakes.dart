@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:snowflakes/helpers/animation_helpers.dart';
-import 'package:snowflakes/helpers/positions.dart';
-import 'package:snowflakes/helpers/progress.dart';
+import 'package:snowflakes/helpers/animation_helpers/positions.dart';
+import 'package:snowflakes/helpers/animation_helpers/progress.dart';
+import 'package:snowflakes/helpers/animation_helpers/tween.dart';
 
 
 class SnowFlakes {

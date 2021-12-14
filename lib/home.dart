@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
+import 'package:snowflakes/helpers/animation_helpers/tween.dart';
 
-import 'helpers/animation_helpers.dart';
 
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class SnowStorm extends StatefulWidget {
+  const SnowStorm({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _SnowStormState createState() => _SnowStormState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SnowStormState extends State<SnowStorm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
               )
+          ),
+
+          Positioned.fill(
+              child: Container()
           ),
         ],
       ),
